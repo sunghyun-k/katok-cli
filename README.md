@@ -35,13 +35,23 @@ katok send "홍길동" "안녕하세요"
 
 출력은 CSV 형식입니다.
 
-## Claude Code 연동
+## AI 에이전트 연동
+
+### Claude Code
 
 [Claude Code](https://docs.anthropic.com/en/docs/claude-code) 플러그인으로 사용할 수 있습니다.
 
 ```
 /plugin marketplace add sunghyun-k/katok-cli
 /plugin install katok@katok-cli
+```
+
+### OpenClaw
+
+[OpenClaw](https://docs.openclaw.ai) 스킬로 사용할 수 있습니다.
+
+```bash
+npx clawhub install katok
 ```
 
 ## License
