@@ -95,9 +95,12 @@ katok send "친구이름" "확인했습니다!"
 
 ## Prerequisites
 
+- **katok CLI**가 설치되어 있어야 합니다
+  - 미설치 시: `brew install sunghyun-k/tap/katok`
 - **카카오톡 macOS 앱**이 설치되어 있어야 합니다
   - 미설치 시: [카카오톡 다운로드 페이지](https://apps.apple.com/kr/app/kakaotalk/id869223134?mt=12)에서 설치하거나, `mas install 869223134` (mas-cli 필요)
   - 미실행 시 katok이 자동으로 실행합니다
 - 터미널(또는 실행 환경)에 **macOS 접근성 권한**이 필요합니다
   - 시스템 설정 → 개인정보 보호 및 보안 → 접근성에서 터미널 앱을 허용하세요
+- **화면보호기 또는 화면 잠김 상태에서는 작동하지 않습니다**
 - 채팅방 이름은 정확히 일치해야 합니다
