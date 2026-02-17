@@ -1,0 +1,8 @@
+{
+    "name": "katok",
+    "description": "macOS 카카오톡 자동화 CLI. 친구 목록, 채팅방 목록, 메시지 읽기, 메시지 보내기를 지원합니다.",
+    "version": "0.0.1",
+    "author": {
+        "name": "Sunghyun Kim"
+    }
+}
