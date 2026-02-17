@@ -13,6 +13,7 @@ brew install sunghyun-k/tap/katok
 - macOS 13+
 - [카카오톡 macOS 앱](https://apps.apple.com/kr/app/kakaotalk/id869223134?mt=12)
 - 터미널에 접근성 권한 허용 (시스템 설정 → 개인정보 보호 및 보안 → 접근성)
+- 화면보호기 또는 화면 잠김 상태에서는 접근성 API가 작동하지 않아 사용할 수 없습니다
 
 ## 사용법
 
