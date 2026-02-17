@@ -54,6 +54,13 @@ katok send "홍길동" "안녕하세요"
 clawhub install katok
 ```
 
+OpenClaw에서 사용하려면 OpenClaw를 실행하는 Node.js 바이너리에 접근성 권한을 부여해야 합니다.
+
+1. **시스템 설정** → **개인정보 보호 및 보안** → **손쉬운 사용**으로 이동
+2. **+** 버튼을 눌러 Node.js 바이너리를 추가
+   - Homebrew로 설치한 경우: `/opt/homebrew/bin/node`
+   - 바이너리 위치 확인: `which node`
+
 ## License
 
 MIT
