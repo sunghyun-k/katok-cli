@@ -48,10 +48,10 @@ katok send "홍길동" "안녕하세요"
 
 ### OpenClaw
 
-[OpenClaw](https://docs.openclaw.ai) 스킬로 사용할 수 있습니다.
+[OpenClaw](https://docs.openclaw.ai) 스킬로 사용할 수 있습니다. OpenClaw 워크스페이스에서 실행하세요.
 
 ```bash
-npx clawhub install katok
+clawhub install katok
 ```
 
 ## License
