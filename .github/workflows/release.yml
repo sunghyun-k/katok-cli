@@ -1,0 +1,60 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: macos-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build release binary
+        run: swift build -c release --disable-sandbox
+
+      - name: Package binary
+        run: |
+          mkdir -p dist
+          cp .build/release/Katok dist/katok
+          cd dist && tar -czf katok-arm64-macos.tar.gz katok
+
+      - name: Compute SHA256
+        id: sha
+        run: echo "sha256=$(shasum -a 256 dist/katok-arm64-macos.tar.gz | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/katok-arm64-macos.tar.gz
+
+      - name: Update Homebrew formula
+        env:
+          HOMEBREW_TAP_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+          VERSION: ${{ github.event.release.tag_name }}
+          SHA256: ${{ steps.sha.outputs.sha256 }}
+        run: |
+          git clone "https://x-access-token:${HOMEBREW_TAP_TOKEN}@github.com/sunghyun-k/homebrew-tap.git" homebrew-tap
+          mkdir -p homebrew-tap/Formula
+          cat > homebrew-tap/Formula/katok.rb <<EOF
+          class Katok < Formula
+            desc "macOS KakaoTalk automation CLI"
+            homepage "https://github.com/sunghyun-k/katok-cli"
+            url "https://github.com/sunghyun-k/katok-cli/releases/download/${VERSION}/katok-arm64-macos.tar.gz"
+            sha256 "${SHA256}"
+            license "MIT"
+
+            depends_on :macos
+
+            def install
+              bin.install "katok"
+            end
+          end
+          EOF
+          cd homebrew-tap
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/katok.rb
+          git diff --staged --quiet || (git commit -m "Update katok to ${VERSION}" && git push)
