@@ -37,10 +37,11 @@ katok send "홍길동" "안녕하세요"
 
 ## Claude Code 연동
 
-[Claude Code](https://docs.anthropic.com/en/docs/claude-code) 스킬로도 사용할 수 있습니다.
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code) 플러그인으로 사용할 수 있습니다.
 
-```bash
-claude install-skill sunghyun-k/katok-cli
+```
+/plugin marketplace add sunghyun-k/katok-cli
+/plugin install katok@katok-cli
 ```
 
 ## License

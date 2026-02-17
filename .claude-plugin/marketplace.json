@@ -1,0 +1,13 @@
+{
+    "name": "katok-cli",
+    "owner": {
+        "name": "Sunghyun Kim"
+    },
+    "plugins": [
+        {
+            "name": "katok",
+            "source": "./",
+            "description": "macOS 카카오톡 자동화. 친구 목록 조회, 채팅방 목록 조회, 메시지 읽기/보내기를 CLI로 수행합니다."
+        }
+    ]
+}
